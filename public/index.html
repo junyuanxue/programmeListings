@@ -17,8 +17,11 @@
       <ul id="a-to-z" ng-repeat="letter in ctrl.letters">
         <li ng-click="ctrl.getProgrammes(letter)">{{ letter }}</li>
       </ul>
-      <ul ng-repeat="">
-        <li></li>
+      <ul id="programmes" ng-repeat="programme in ctrl.programmes">
+        <li>
+          {{ programme.title }}
+          <img src="{{ programme.image }}" />
+        </li>
       </ul>
     </div>
 

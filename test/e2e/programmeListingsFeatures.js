@@ -10,8 +10,8 @@ describe('Programme Listings', function () {
 
       response: {
         data: [
-            { title: 'Abadas', image: 'abadas.jpg' },
-            { title: 'ABBA', image: 'abba.jpg' }
+            { title: 'Abadas', image: 'http://abadas.jpg/' },
+            { title: 'ABBA', image: 'http://abba.jpg/' }
           ]
         }
       }
@@ -41,9 +41,12 @@ describe('Programme Listings', function () {
     browser.get('/');
     var a = $$('#a-to-z li').first();
     a.click();
-    var programmesStartWithA = $$('#programmes li');
+    var programmes = $$('#programmes li');
+    var programmeImages = $$('#programmes li img');
 
-    expect(programmesStartWithA.first().getText()).toEqual('Abadas');
-    expect(programmesStartWithA.last().getText()).toEqual('ABBA');
+    expect(programmes.first().getText()).toEqual('Abadas');
+    expect(programmes.last().getText()).toEqual('ABBA');
+    expect(programmeImages.first().getAttribute('src')).toEqual('http://abadas.jpg/');
+    expect(programmeImages.last().getAttribute('src')).toEqual('http://abba.jpg/');
   });
 });
