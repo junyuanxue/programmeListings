@@ -11,7 +11,7 @@ function ProgrammeService($http) {
       .then(_handleProgrammesData);
   }
 
-  var _handleProgrammesData = function (response) {
+  function _handleProgrammesData(response) {
     return response.data.map(function (programme) {
       return programme;
     });
