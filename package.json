@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "express": "^4.13.4",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
@@ -17,6 +19,7 @@
     "karma-cli": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-spec-reporter": "0.0.26",
+    "mocha": "^2.5.3",
     "protractor": "^3.3.0",
     "protractor-http-mock": "^0.7.0"
   }
