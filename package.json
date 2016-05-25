@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
-  },
+    "karma": "karma start test/karma.conf.js",
+    "protractor": "protractor test/protractor.conf.js",
+    "mocha": "mocha test/server"
+    },
   "author": "",
   "license": "ISC",
   "devDependencies": {
