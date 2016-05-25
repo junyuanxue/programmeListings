@@ -10,8 +10,8 @@ describe('Programme Listings', function () {
     var aToZ = $$('#a-to-z li');
 
     expect(aToZ.count()).toEqual(26);
-    expect(aToZ.first().getText()).toEqual('A');
-    expect(aToZ.last().getText()).toEqual('Z');
+    expect(aToZ.first().getText()).toEqual('a');
+    expect(aToZ.last().getText()).toEqual('z');
   });
 
   it('fetches a list of programmes starting with the letter', function () {
