@@ -11,6 +11,7 @@ describe('Programme Listings server', function () {
       .get('/api/programmes')
       .end(function (err, res) {
         expect(res).to.have.status(200);
+        expect(res).to.be.json;
         done();
       });
   });
