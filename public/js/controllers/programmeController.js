@@ -2,9 +2,9 @@ angular
   .module('programmeListings')
   .controller('ProgrammeController', ProgrammeController);
 
-ProgrammeController.$inject = [];
+ProgrammeController.$inject = ['ProgrammeService'];
 
-function ProgrammeController() {
+function ProgrammeController(ProgrammeService) {
   var vm = this;
   vm.letters = [
     'a', 'b', 'c', 'd', 'e', 'f',

@@ -3,7 +3,7 @@ describe('ProgrammeController', function () {
 
   var ctrl;
 
-  beforeEach(inject(function($controller, _ProgrammeService_) {
+  beforeEach(inject(function ($controller, _ProgrammeService_) {
     ctrl = $controller('ProgrammeController');
     ProgrammeService = _ProgrammeService_;
   }));
