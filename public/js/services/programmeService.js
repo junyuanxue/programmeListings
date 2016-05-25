@@ -2,8 +2,19 @@ angular
   .module('programmeListings')
   .service('ProgrammeService', ProgrammeService)
 
-ProgrammeService.$inject = ['$httpBackend'];
+ProgrammeService.$inject = ['$http'];
 
-function ProgrammeService($httpBackend) {
+function ProgrammeService($http) {
+
+  this.getProgrammes = function (letter) {
+    return $http.get('/api/programmes')
+      .then(_handleProgrammesData);
+  }
+
+  var _handleProgrammesData = function (response) {
+    return response.data.map(function (programme) {
+      return programme;
+    });
+  }
 
 }
