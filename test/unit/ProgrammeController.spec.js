@@ -24,7 +24,9 @@ describe('ProgrammeController', function () {
   });
 
   it('gets a list of programmes from the server', function () {
+    spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
     ctrl.getProgrammes('a');
+
     expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a');
   });
 

@@ -16,7 +16,11 @@ function ProgrammeController(ProgrammeService) {
   vm.programmes = [];
 
   vm.getProgrammes = function (letter) {
-    
+    ProgrammeService.getProgrammes(letter)
+      .then(_refreshProgrammes);
   }
 
+  function _refreshProgrammes(programmes) {
+    vm.programmes = programmes;
+  }
 }
