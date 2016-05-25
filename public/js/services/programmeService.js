@@ -5,7 +5,6 @@ angular
 ProgrammeService.$inject = ['$http', 'ProgrammeFactory'];
 
 function ProgrammeService($http, ProgrammeFactory) {
-
   this.getProgrammes = function (letter) {
     return $http.get('/api/programmes')
       .then(_handleProgrammesData);
