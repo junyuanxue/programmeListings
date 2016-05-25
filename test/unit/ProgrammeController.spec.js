@@ -29,5 +29,4 @@ describe('ProgrammeController', function () {
 
     expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a');
   });
-
 });
