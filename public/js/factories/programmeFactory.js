@@ -6,5 +6,5 @@ angular
       this.image = image;
     };
 
-    return Programme
+    return Programme;
   });
