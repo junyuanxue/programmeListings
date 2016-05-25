@@ -1,4 +1,27 @@
 describe('Programme Listings', function () {
+  var mock = require('protractor-http-mock');
+
+  beforeEach(function () {
+    mock([{
+      request: {
+        path: "/api/programmes",
+        method: 'GET'
+      },
+
+      response: {
+        data: [
+            { title: 'Abadas', image: 'abadas.jpg' },
+            { title: 'ABBA', image: 'abba.jpg' }
+          ]
+        }
+      }
+    ]);
+  });
+
+  afterEach(function () {
+    mock.teardown();
+  });
+
   it('has a title', function () {
     browser.get('/');
 
@@ -18,8 +41,9 @@ describe('Programme Listings', function () {
     browser.get('/');
     var a = $$('#a-to-z li').first();
     a.click();
+    var programmesStartWithA = $$('#programmes li');
 
-    //page displays a list of programmes under A:
-    // expect()
+    expect(programmesStartWithA.first().getText()).toEqual('Abadas');
+    expect(programmesStartWithA.last().getText()).toEqual('ABBA');
   });
 });
