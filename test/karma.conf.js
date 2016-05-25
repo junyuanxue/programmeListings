@@ -16,9 +16,12 @@ module.exports = function(config){
 
     browsers : ['Chrome'],
 
+    reporters: ['spec'],
+
     plugins : [
             'karma-chrome-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-spec-reporter'
     ]
   });
 };
