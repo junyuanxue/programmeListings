@@ -15,7 +15,7 @@ describe('ProgrammeService', function () {
   }));
 
   it('get a list of programmes from the server', function () {
-    httpBackend.expectGET('/api/programmes').respond(data);
+    httpBackend.expectGET('/api/programmes?letter=a').respond(data);
     var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
     var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
 

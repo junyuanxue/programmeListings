@@ -4,7 +4,7 @@ describe('Programme Listings', function () {
   beforeEach(function () {
     mock([{
       request: {
-        path: "/api/programmes",
+        path: '/api/programmes?letter=a',
         method: 'GET'
       },
 
