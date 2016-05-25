@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "jasmine-core": "^2.4.1",
+    "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-cli": "^1.0.0",
