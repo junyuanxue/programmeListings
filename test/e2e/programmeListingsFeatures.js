@@ -1,6 +1,7 @@
 describe('Programme Listings', function () {
-  it('has a title', function () {
+  it('has a programme listing', function () {
     browser.get('/');
-    expect(browser.getTitle()).toEqual('Programme Listings');
+    var programme = $('#programme');
+    expect(programme.getText()).toEqual('First programme');
   });
 });
