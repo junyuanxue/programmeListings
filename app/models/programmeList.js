@@ -12,12 +12,17 @@ exports.callToApi = function (letter) {
   }
 
   return new Promise(function (resolve, reject) {
-    request(options, function (error, response, body) {
+    request.get(options, function (error, response, body) {
       if (error) return reject(error);
       if (response.statusCode !== 200) return reject(new Error(body));
       if (!error && response.statusCode === 200) {
-        resolve(body);
+        var programmes = _handleResponse(JSON.parse(body));
+        resolve(programmes);
       }
     });
   });
+}
+
+function _handleResponse(data) {
+  console.log(data.atoz_programmes);
 }
