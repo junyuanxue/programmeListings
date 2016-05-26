@@ -30,12 +30,12 @@ exports.callToApi = function (letter) {
 function _handleResponse(data) {
   //data that will be useful with pagination:
   var numPerPage = data.atoz_programmes.per_page;
-  var numOfProgrammes = data.atoz_programmes.count;
+  var count = data.atoz_programmes.count;
   var currentPage = data.atoz_programmes.page;
-
-  return data.atoz_programmes.elements.map(function (programme) {
+  var programmes = data.atoz_programmes.elements.map(function (programme) {
     return _parseProgrammeData(programme);
   });
+  return { count: count, programmes: programmes };
 }
 
 function _parseProgrammeData(programme) {

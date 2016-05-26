@@ -14,6 +14,7 @@ chai.use(chaiJsonEqual);
 describe('ProgrammeList', function () {
   var fakeData = {
     atoz_programmes: {
+      count: 2,
       elements: [
           {
             title: 'Abadas',
@@ -46,10 +47,13 @@ describe('ProgrammeList', function () {
 
   it('makes an external API call', function (done) {
     var size = '192x108';
-    var parsedData = [
-      { title: 'Abadas', image: 'http://' + size + '/abadas.jpg/' },
-      { title: 'ABBA', image: 'http://' + size + '/abba.jpg/' }
-    ];
+    var parsedData = {
+      count: 2,
+      programmes: [
+          { title: 'Abadas', image: 'http://' + size + '/abadas.jpg/' },
+          { title: 'ABBA', image: 'http://' + size + '/abba.jpg/' }
+        ]
+    };
 
     programmeList.callToApi('a')
       .then(function (result) {
