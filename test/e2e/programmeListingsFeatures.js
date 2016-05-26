@@ -2,11 +2,9 @@ describe('Programme Listings', function () {
   var mock = require('protractor-http-mock');
 
   beforeEach(function () {
-    browser.get('/');
-
     mock([{
       request: {
-        path: '/api/programmes/a',
+        path: '/api/programmes/a?page=1',
         method: 'GET'
       },
       response: {
@@ -20,6 +18,7 @@ describe('Programme Listings', function () {
       }
     }]);
 
+    browser.get('/');
     var a = $$('#a-to-z li').first();
     a.click();
   });

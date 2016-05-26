@@ -5,9 +5,8 @@ var IMAGE_SIZE = {
   large: '560x315'
 };
 
-exports.callToApi = function (letter) {
+exports.callToApi = function (letter, page) {
   var base = 'https://ibl.api.bbci.co.uk/ibl/v1/atoz/';
-  var page = 1;
   var options = {
     url: base + letter + '/programmes?page=' + page,
     headers: {
@@ -28,11 +27,9 @@ exports.callToApi = function (letter) {
 }
 
 function _handleResponse(data) {
-  //data that will be useful with pagination:
   var numPerPage = data.atoz_programmes.per_page;
   var count = data.atoz_programmes.count;
-  var currentPage = data.atoz_programmes.page;
-
+  
   var numOfPages = Math.ceil(count / numPerPage);
   var programmes = data.atoz_programmes.elements.map(function (programme) {
     return _parseProgrammeData(programme);

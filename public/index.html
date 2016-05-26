@@ -22,7 +22,7 @@
 
       <br>
 
-      <span>Page</span>
+      <span ng-if="ctrl.currentLetter!==null">Page</span>
       <ul id= "page-count" ng-repeat="page in ctrl.pages">
         <li ng-click="ctrl.loadPage(page)">{{ page }}</li>
       </ul>

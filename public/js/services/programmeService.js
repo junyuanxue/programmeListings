@@ -6,7 +6,8 @@ ProgrammeService.$inject = ['$http', 'ProgrammeFactory'];
 
 function ProgrammeService($http, ProgrammeFactory) {
   this.getProgrammes = function (letter, page) {
-    return $http.get('/api/programmes/' + letter + '?page=' + page)
+    var url = '/api/programmes/' + letter + '?page=' + page;
+    return $http.get(url)
       .then(_handleProgrammesData);
   }
 

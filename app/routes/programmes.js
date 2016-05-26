@@ -4,9 +4,8 @@ var programmeList = require('../models/programmeList');
 
 router.get('/:letter', function (req, res) {
   var letter = req.params.letter;
-  console.log(req.query);
-
-  programmeList.callToApi(letter)
+  var page = req.query.page;
+  programmeList.callToApi(letter, page)
     .then(function (programmesData) {
       res.send(programmesData);
     }).catch(function (error) {

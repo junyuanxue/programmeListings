@@ -56,7 +56,7 @@ describe('ProgrammeList', function () {
         ]
     };
 
-    programmeList.callToApi('a')
+    programmeList.callToApi('a', 1)
       .then(function (result) {
         expect(result).to.jsonEqual(parsedData);
         done();
