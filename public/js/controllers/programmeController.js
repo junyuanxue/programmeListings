@@ -21,7 +21,8 @@ function ProgrammeController(ProgrammeService) {
       .then(_refreshProgrammes);
   }
 
-  function _refreshProgrammes(programmes) {
-    vm.programmes = programmes;
+  function _refreshProgrammes(response) {
+    vm.programmes = response.programmes;
+    vm.numOfProgrammes = response.count;
   }
 }

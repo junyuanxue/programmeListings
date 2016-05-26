@@ -3,10 +3,13 @@ describe('ProgrammeService', function () {
 
   var ProgrammeService, httpBackend;
 
-  var data = [
-    { title: 'Abadas', image: 'http://abadas.jpg/' },
-    { title: 'ABBA', image: 'http://abba.jpg/' }
-  ];
+  var data = {
+    count: 2,
+    programmes: [
+      { title: 'Abadas', image: 'http://abadas.jpg/' },
+      { title: 'ABBA', image: 'http://abba.jpg/' }
+    ]
+  };
 
   beforeEach(inject(function (_ProgrammeService_, _ProgrammeFactory_, $httpBackend) {
     ProgrammeService = _ProgrammeService_;
@@ -18,9 +21,13 @@ describe('ProgrammeService', function () {
     httpBackend.expectGET('/api/programmes/a').respond(data);
     var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
     var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
+    parsedData = {
+      count: 2,
+      programmes: [programme1, programme2]
+    }
 
-    ProgrammeService.getProgrammes('a').then(function (programmes) {
-      expect(programmes).toEqual([programme1, programme2]);
+    ProgrammeService.getProgrammes('a').then(function (result) {
+      expect(result).toEqual(parsedData);
     });
 
     httpBackend.flush();

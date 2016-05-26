@@ -11,8 +11,15 @@ function ProgrammeService($http, ProgrammeFactory) {
   }
 
   function _handleProgrammesData(response) {
-    return response.data.map(function (programme) {
+    var programmes = response.data.programmes.map(function (programme) {
       return new ProgrammeFactory(programme.title, programme.image);
     });
+
+    var list = {
+      count: response.data.count,
+      programmes: programmes
+    };
+    
+    return list;
   }
 }

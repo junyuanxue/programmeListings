@@ -7,15 +7,16 @@ describe('Programme Listings', function () {
         path: '/api/programmes/a',
         method: 'GET'
       },
-
       response: {
-        data: [
-            { title: 'Abadas', image: 'http://abadas.jpg/' },
-            { title: 'ABBA', image: 'http://abba.jpg/' }
-          ]
+        data: {
+          count: 2,
+          programmes: [
+              { title: 'Abadas', image: 'http://abadas.jpg/' },
+              { title: 'ABBA', image: 'http://abba.jpg/' }
+            ]
         }
       }
-    ]);
+    }]);
   });
 
   afterEach(function () {

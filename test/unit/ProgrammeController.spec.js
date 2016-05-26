@@ -29,9 +29,4 @@ describe('ProgrammeController', function () {
 
     expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a');
   });
-
-  it('shows the total number of programmes for each letter', function () {
-    ctrl.getProgrammes('a');
-    expect(ctrl.numOfProgrammes).toEqual(2);
-  });
 });
