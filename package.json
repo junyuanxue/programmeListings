@@ -13,6 +13,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
+    "chai-json-equal": "0.0.1",
     "express": "^4.13.4",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",

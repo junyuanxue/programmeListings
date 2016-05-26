@@ -43,6 +43,7 @@ describe('Programme Listings', function () {
     a.click();
     var programmes = $$('#programmes li p');
     var programmeImages = $$('#programmes li img');
+    var count = $('#count');
 
     expect(programmes.first().getText()).toEqual('Abadas');
     expect(programmes.last().getText()).toEqual('ABBA');

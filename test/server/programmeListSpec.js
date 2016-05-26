@@ -2,12 +2,14 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var sinon = require('sinon');
 var sinonChai = require('sinon-chai');
+var chaiJsonEqual = require('chai-json-equal');
 var request = require('request');
 var programmeList = require('../../app/models/programmeList');
 var expect = chai.expect;
 
 chai.use(chaiHttp);
 chai.use(sinonChai);
+chai.use(chaiJsonEqual);
 
 describe('ProgrammeList', function () {
   var fakeData = {
@@ -51,7 +53,7 @@ describe('ProgrammeList', function () {
 
     programmeList.callToApi('a')
       .then(function (result) {
-        expect(JSON.stringify(result)).to.equal(JSON.stringify(parsedData));
+        expect(result).to.jsonEqual(parsedData);
         done();
       });
   });

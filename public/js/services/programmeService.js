@@ -11,7 +11,6 @@ function ProgrammeService($http, ProgrammeFactory) {
   }
 
   function _handleProgrammesData(response) {
-    // console.log(response.data.atoz_programmes.elements[0]);
     return response.data.map(function (programme) {
       return new ProgrammeFactory(programme.title, programme.image);
     });
