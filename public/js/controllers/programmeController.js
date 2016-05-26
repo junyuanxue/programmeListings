@@ -14,6 +14,7 @@ function ProgrammeController(ProgrammeService) {
     'y', 'z'
   ];
   vm.programmes = [];
+  vm.numOfProgrammes = null;
 
   vm.getProgrammes = function (letter) {
     ProgrammeService.getProgrammes(letter)
