@@ -4,7 +4,7 @@ describe('Programme Listings', function () {
   beforeEach(function () {
     mock([{
       request: {
-        path: '/api/programmes?letter=a',
+        path: '/api/programmes/a',
         method: 'GET'
       },
 
@@ -33,15 +33,15 @@ describe('Programme Listings', function () {
     var aToZ = $$('#a-to-z li');
 
     expect(aToZ.count()).toEqual(26);
-    expect(aToZ.first().getText()).toEqual('a');
-    expect(aToZ.last().getText()).toEqual('z');
+    expect(aToZ.first().getText()).toEqual('A');
+    expect(aToZ.last().getText()).toEqual('Z');
   });
 
   it('fetches a list of programmes starting with the letter', function () {
     browser.get('/');
     var a = $$('#a-to-z li').first();
     a.click();
-    var programmes = $$('#programmes li');
+    var programmes = $$('#programmes li p');
     var programmeImages = $$('#programmes li img');
 
     expect(programmes.first().getText()).toEqual('Abadas');

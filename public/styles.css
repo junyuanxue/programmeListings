@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(250,250,250);
+  font-family: sans-serif;
+}
+
+#a-to-z {
+  text-transform: uppercase;
+  list-style: none;
+  display: inline-block;
+}
