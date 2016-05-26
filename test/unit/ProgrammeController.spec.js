@@ -19,47 +19,63 @@ describe('ProgrammeController', function () {
     httpBackend.expectGET('/api/programmes/a?page=1').respond(data);
   }));
 
-  it('has a list of alphabet', function () {
-    var alphabet = [
-      'a', 'b', 'c', 'd', 'e', 'f',
-      'g', 'h', 'i', 'j', 'k', 'l',
-      'm', 'n', 'o', 'p', 'q', 'r',
-      's', 't', 'u', 'v', 'w', 'x',
-      'y', 'z'
-    ]
-    expect(ctrl.letters).toEqual(alphabet);
+  describe('controller set up', function () {
+    it('has a list of alphabet', function () {
+      var alphabet = [
+        'a', 'b', 'c', 'd', 'e', 'f',
+        'g', 'h', 'i', 'j', 'k', 'l',
+        'm', 'n', 'o', 'p', 'q', 'r',
+        's', 't', 'u', 'v', 'w', 'x',
+        'y', 'z'
+      ]
+      expect(ctrl.letters).toEqual(alphabet);
+    });
+
+    it('has an empty list of programmes', function () {
+      expect(ctrl.programmes).toEqual([]);
+    });
+
+    it('has no pages', function () {
+      expect(ctrl.pages).toEqual([]);
+    });
   });
 
-  it('initialises with an empty list of programmes', function () {
-    expect(ctrl.programmes).toEqual([]);
+  describe('getProgrammes', function () {
+    beforeEach(function () {
+      ctrl.getProgrammes('a');
+      httpBackend.flush();
+    });
+
+    it('instructs service to make an API call', function () {
+      spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
+      ctrl.getProgrammes('a');
+
+      expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 1);
+    });
+
+    it('updates the programmes', function () {
+      var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
+      var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
+
+      expect(ctrl.programmes).toEqual([programme1, programme2]);
+    });
+
+    it('updates the pages', function () {
+      expect(ctrl.pages).toEqual([1, 2]);
+    });
+
+    it('updates the current letter', function () {
+      expect(ctrl.currentLetter).toEqual('a');
+    });
   });
 
-  it('initialises with no pages', function () {
-    expect(ctrl.pages).toEqual([]);
-  });
+  describe('loadPage', function () {
+    it('loads the next page', function () {
+      spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
+      ctrl.currentLetter = 'a';
+      ctrl.loadPage(2);
 
-  it('gets a list of programmes from the server', function () {
-    spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
-    ctrl.getProgrammes('a');
-
-    expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 1);
-  });
-
-  it('updates the programmes', function () {
-    ctrl.getProgrammes('a');
-    httpBackend.flush();
-
-    var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
-    var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
-
-    expect(ctrl.programmes).toEqual([programme1, programme2]);
-  });
-
-  it('loads the next page', function () {
-    spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
-    ctrl.currentLetter = 'a';
-    ctrl.loadPage(2);
-
-    expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 2);
+      expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 2);
+    });
   });
 });
