@@ -15,7 +15,7 @@ function ProgrammeService($http, ProgrammeFactory) {
     var programmes = response.data.programmes.map(function (programme) {
       return new ProgrammeFactory(programme.title, programme.image);
     });
-
+    
     var list = {
       numOfPages: response.data.numOfPages,
       programmes: programmes

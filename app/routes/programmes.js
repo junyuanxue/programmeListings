@@ -6,8 +6,8 @@ router.get('/:letter', function (req, res) {
   var letter = req.params.letter;
   var page = req.query.page;
   programmeList.callToApi(letter, page)
-    .then(function (programmesData) {
-      res.send(programmesData);
+    .then(function (programmes) {
+      res.send(programmes);
     }).catch(function (error) {
       res.send(error);
     });

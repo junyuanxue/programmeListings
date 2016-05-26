@@ -21,7 +21,7 @@ describe('ProgrammeService', function () {
     httpBackend.expectGET('/api/programmes/a?page=1').respond(data);
     var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
     var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
-    parsedData = {
+    var parsedData = {
       numOfPages: 1,
       programmes: [programme1, programme2]
     }
