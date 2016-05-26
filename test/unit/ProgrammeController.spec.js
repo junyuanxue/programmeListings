@@ -29,4 +29,13 @@ describe('ProgrammeController', function () {
 
     expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a');
   });
+
+  it('loads the next page', function () {
+    spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
+    ctrl.currentLetter = 'a';
+    ctrl.currentPage = 1;
+    ctrl.loadNextPage();
+
+    expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 2);
+  });
 });

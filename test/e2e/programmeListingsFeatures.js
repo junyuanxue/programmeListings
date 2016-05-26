@@ -40,7 +40,7 @@ describe('Programme Listings', function () {
     expect(aToZ.last().getText()).toEqual('Z');
   });
 
-  it('fetches a list of programmes starting with the letter', function () {
+  it('fetches a list of programmes and displays page count', function () {
     var programmes = $$('#programmes li p');
     var programmeImages = $$('#programmes li img');
     var pageCount = $('#page-count');

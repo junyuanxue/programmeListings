@@ -15,15 +15,23 @@ function ProgrammeController(ProgrammeService) {
   ];
   vm.programmes = [];
   vm.numOfPages = null;
-  vm.currentPage = 1;
+  vm.currentPage = 0;
+  vm.currentLetter = null;
 
   vm.getProgrammes = function (letter) {
+    vm.currentLetter = letter;
     ProgrammeService.getProgrammes(letter)
       .then(_refreshProgrammes);
+  }
+
+  vm.loadNextPage = function () {
+    vm.currentPage += 1;
+    ProgrammeService.getProgrammes(vm.currentLetter, vm.currentPage);
   }
 
   function _refreshProgrammes(response) {
     vm.programmes = response.programmes;
     vm.numOfPages = response.numOfPages;
+    vm.currentPage = 1;
   }
 }
