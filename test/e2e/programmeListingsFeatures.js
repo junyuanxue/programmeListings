@@ -53,10 +53,29 @@ describe('Programme Listings', function () {
   });
 
   it('refreshes the list when user clickes on another page', function () {
+    mock.add([{
+      request: {
+        path: '/api/programmes/a',
+        method: 'GET',
+        queryString: { page:  '2' }
+      },
+      response: {
+        data: {
+          numOfPages: 2,
+          programmes: [
+              { title: 'All Over the Place', image: 'http://all-over-the-place.jpg/' }
+            ]
+        }
+      }
+    }]);
+
     var page2 = $$('#page-count li').last();
     page2.click();
     var programmes = $$('#programmes li p');
+    var programmeImages = $$('#programmes li img');
 
     expect(programmes.first().getText()).not.toEqual('Abadas');
+    expect(programmes.first().getText()).toEqual('All Over the Place');
+    expect(programmeImages.first().getAttribute('src')).toEqual('http://all-over-the-place.jpg/');
   });
 });
