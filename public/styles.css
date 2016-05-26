@@ -9,7 +9,7 @@ body {
   display: inline-block;
 }
 
-#a-to-z li:hover {
+#a-to-z li:hover, #next-page:hover {
   cursor: pointer;
   text-decoration: underline;
 }

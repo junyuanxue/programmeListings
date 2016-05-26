@@ -13,13 +13,18 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Programmes</h1>
+    <h1>What's on BBC</h1>
+    <p>To view programme listings, click on a letter:</p>
     <div ng-controller="ProgrammeController as ctrl">
       <ul id="a-to-z" ng-repeat="letter in ctrl.letters">
         <li ng-click="ctrl.getProgrammes(letter)">{{ letter }}</li>
       </ul>
 
-      <p id="page-count">Page 1 of {{ ctrl.numOfPages }}</p>
+      <p id="page-count">
+        Page {{ ctrl.currentPage }} of {{ ctrl.numOfPages }}
+        <span ng-if="ctrl.currentPage<ctrl.numOfPages" id="next-page">Next Page</span>
+      </p>
+
       <ul id="programmes" ng-repeat="programme in ctrl.programmes">
         <li>
           <p>{{ programme.title }}</p>

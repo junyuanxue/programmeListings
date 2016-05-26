@@ -9,7 +9,7 @@ describe('Programme Listings', function () {
       },
       response: {
         data: {
-          numOfPages: 1,
+          numOfPages: 2,
           programmes: [
               { title: 'Abadas', image: 'http://abadas.jpg/' },
               { title: 'ABBA', image: 'http://abba.jpg/' }
@@ -46,7 +46,7 @@ describe('Programme Listings', function () {
     var programmeImages = $$('#programmes li img');
     var pageCount = $('#page-count');
 
-    expect(pageCount.getText()).toEqual('Page 1 of 1');
+    expect(pageCount.getText()).toEqual('Page 1 of 2 Next Page');
     expect(programmes.first().getText()).toEqual('Abadas');
     expect(programmes.last().getText()).toEqual('ABBA');
     expect(programmeImages.first().getAttribute('src')).toEqual('http://abadas.jpg/');
