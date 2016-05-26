@@ -16,10 +16,10 @@ function ProgrammeService($http, ProgrammeFactory) {
     });
 
     var list = {
-      count: response.data.count,
+      numOfPages: response.data.numOfPages,
       programmes: programmes
     };
-    
+
     return list;
   }
 }

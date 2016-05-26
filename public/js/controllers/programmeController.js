@@ -14,7 +14,7 @@ function ProgrammeController(ProgrammeService) {
     'y', 'z'
   ];
   vm.programmes = [];
-  vm.numOfProgrammes = null;
+  vm.numOfPages = null;
 
   vm.getProgrammes = function (letter) {
     ProgrammeService.getProgrammes(letter)
@@ -23,6 +23,6 @@ function ProgrammeController(ProgrammeService) {
 
   function _refreshProgrammes(response) {
     vm.programmes = response.programmes;
-    vm.numOfProgrammes = response.count;
+    vm.numOfPages = response.numOfPages;
   }
 }

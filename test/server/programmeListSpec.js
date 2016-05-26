@@ -15,6 +15,7 @@ describe('ProgrammeList', function () {
   var fakeData = {
     atoz_programmes: {
       count: 2,
+      per_page: 20,
       elements: [
           {
             title: 'Abadas',
@@ -48,7 +49,7 @@ describe('ProgrammeList', function () {
   it('makes an external API call', function (done) {
     var size = '192x108';
     var parsedData = {
-      count: 2,
+      numOfPages: 1,
       programmes: [
           { title: 'Abadas', image: 'http://' + size + '/abadas.jpg/' },
           { title: 'ABBA', image: 'http://' + size + '/abba.jpg/' }

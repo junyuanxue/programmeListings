@@ -20,8 +20,8 @@ exports.callToApi = function (letter) {
       if (error) return reject(error);
       if (response.statusCode !== 200) return reject(new Error(body));
       if (!error && response.statusCode === 200) {
-        var programmes = _handleResponse(JSON.parse(body));
-        resolve(programmes);
+        var list = _handleResponse(JSON.parse(body));
+        resolve(list);
       }
     });
   });
@@ -32,10 +32,13 @@ function _handleResponse(data) {
   var numPerPage = data.atoz_programmes.per_page;
   var count = data.atoz_programmes.count;
   var currentPage = data.atoz_programmes.page;
+
+  var numOfPages = Math.ceil(count / numPerPage);
   var programmes = data.atoz_programmes.elements.map(function (programme) {
     return _parseProgrammeData(programme);
   });
-  return { count: count, programmes: programmes };
+
+  return { numOfPages: numOfPages, programmes: programmes };
 }
 
 function _parseProgrammeData(programme) {

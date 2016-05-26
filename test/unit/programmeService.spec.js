@@ -4,7 +4,7 @@ describe('ProgrammeService', function () {
   var ProgrammeService, httpBackend;
 
   var data = {
-    count: 2,
+    numOfPages: 1,
     programmes: [
       { title: 'Abadas', image: 'http://abadas.jpg/' },
       { title: 'ABBA', image: 'http://abba.jpg/' }
@@ -22,7 +22,7 @@ describe('ProgrammeService', function () {
     var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
     var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
     parsedData = {
-      count: 2,
+      numOfPages: 1,
       programmes: [programme1, programme2]
     }
 
