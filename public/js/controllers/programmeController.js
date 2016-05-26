@@ -15,25 +15,26 @@ function ProgrammeController(ProgrammeService) {
   ];
   vm.programmes = [];
   vm.pages = [];
-  vm.currentPage = 0;
   vm.currentLetter = null;
 
   vm.getProgrammes = function (letter) {
     vm.currentLetter = letter;
-    vm.currentPage = 1;
-    ProgrammeService.getProgrammes(letter)
+    ProgrammeService.getProgrammes(letter, 1)
       .then(_refreshProgrammes);
   }
 
-  vm.loadNextPage = function () {
-    vm.currentPage += 1;
-    ProgrammeService.getProgrammes(vm.currentLetter, vm.currentPage)
+  vm.loadPage = function (page) {
+    ProgrammeService.getProgrammes(vm.currentLetter, page)
       .then(_refreshProgrammes);
   }
 
   function _refreshProgrammes(response) {
     vm.programmes = response.programmes;
     vm.numOfPages = response.numOfPages;
+    _updatePages();
+  }
+
+  function _updatePages() {
     vm.pages = [];
     for(i = 1; i <= vm.numOfPages; i++) {
       vm.pages.push(i);

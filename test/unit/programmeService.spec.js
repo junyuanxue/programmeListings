@@ -26,7 +26,7 @@ describe('ProgrammeService', function () {
       programmes: [programme1, programme2]
     }
 
-    ProgrammeService.getProgrammes('a').then(function (result) {
+    ProgrammeService.getProgrammes('a', 1).then(function (result) {
       expect(result).toEqual(parsedData);
     });
 

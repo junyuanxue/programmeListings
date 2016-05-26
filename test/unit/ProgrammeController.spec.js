@@ -27,14 +27,13 @@ describe('ProgrammeController', function () {
     spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
     ctrl.getProgrammes('a');
 
-    expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a');
+    expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 1);
   });
 
   it('loads the next page', function () {
     spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
     ctrl.currentLetter = 'a';
-    ctrl.currentPage = 1;
-    ctrl.loadNextPage();
+    ctrl.loadPage(2);
 
     expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 2);
   });
