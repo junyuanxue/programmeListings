@@ -4,8 +4,9 @@ describe('Programme Listings', function () {
   beforeEach(function () {
     mock([{
       request: {
-        path: '/api/programmes/a?page=1',
-        method: 'GET'
+        path: '/api/programmes/a',
+        method: 'GET',
+        queryString: { page:  '1' }
       },
       response: {
         data: {
@@ -19,8 +20,8 @@ describe('Programme Listings', function () {
     }]);
 
     browser.get('/');
-    var a = $$('#a-to-z li').first();
-    a.click();
+    var letterA = $$('#a-to-z li').first();
+    letterA.click();
   });
 
   afterEach(function () {
@@ -57,5 +58,5 @@ describe('Programme Listings', function () {
     var programmes = $$('#programmes li p');
 
     expect(programmes.first().getText()).not.toEqual('Abadas');
-  })
+  });
 });
