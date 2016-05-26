@@ -7,7 +7,7 @@
     "karma": "karma start test/karma.conf.js",
     "protractor": "protractor test/protractor.conf.js",
     "mocha": "mocha test/server"
-    },
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -23,6 +23,9 @@
     "karma-spec-reporter": "0.0.26",
     "mocha": "^2.5.3",
     "protractor": "^3.3.0",
-    "protractor-http-mock": "^0.7.0"
+    "protractor-http-mock": "^0.7.0",
+    "request": "^2.72.0",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
   }
 }

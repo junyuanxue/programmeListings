@@ -3,8 +3,8 @@ var app = express();
 var port = process.env.PORT || 3000;
 var path = require('path');
 
-var index = require('./routes/index');
-var programmes = require('./routes/programmes');
+var index = require('./app/routes/index');
+var programmes = require('./app/routes/programmes');
 
 app.use(express.static(path.join(__dirname, '/public')));
 
