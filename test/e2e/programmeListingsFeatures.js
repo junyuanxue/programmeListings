@@ -45,6 +45,7 @@ describe('Programme Listings', function () {
     var programmeImages = $$('#programmes li img');
     var count = $('#count');
 
+    expect(count.getText()).toEqual('1-2 of 2');
     expect(programmes.first().getText()).toEqual('Abadas');
     expect(programmes.last().getText()).toEqual('ABBA');
     expect(programmeImages.first().getAttribute('src')).toEqual('http://abadas.jpg/');

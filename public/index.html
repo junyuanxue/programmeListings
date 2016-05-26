@@ -18,6 +18,8 @@
       <ul id="a-to-z" ng-repeat="letter in ctrl.letters">
         <li ng-click="ctrl.getProgrammes(letter)">{{ letter }}</li>
       </ul>
+
+      <p id="count">1-2 of {{ ctrl.totalNumOfProgrammes }}</p>
       <ul id="programmes" ng-repeat="programme in ctrl.programmes">
         <li>
           <p>{{ programme.title }}</p>
