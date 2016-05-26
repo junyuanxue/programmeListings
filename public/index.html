@@ -19,7 +19,7 @@
         <li ng-click="ctrl.getProgrammes(letter)">{{ letter }}</li>
       </ul>
 
-      <p id="page-count">1 of {{ ctrl.numOfPages }}</p>
+      <p id="page-count">Page 1 of {{ ctrl.numOfPages }}</p>
       <ul id="programmes" ng-repeat="programme in ctrl.programmes">
         <li>
           <p>{{ programme.title }}</p>
