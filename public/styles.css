@@ -8,3 +8,8 @@ body {
   list-style: none;
   display: inline-block;
 }
+
+#a-to-z li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
