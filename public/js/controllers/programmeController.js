@@ -14,7 +14,7 @@ function ProgrammeController(ProgrammeService) {
     'y', 'z'
   ];
   vm.programmes = [];
-  vm.numOfPages = null;
+  vm.pages = [];
   vm.currentPage = 0;
   vm.currentLetter = null;
 
@@ -34,5 +34,9 @@ function ProgrammeController(ProgrammeService) {
   function _refreshProgrammes(response) {
     vm.programmes = response.programmes;
     vm.numOfPages = response.numOfPages;
+    vm.pages = [];
+    for(i = 1; i <= vm.numOfPages; i++) {
+      vm.pages.push(i);
+    }
   }
 }
