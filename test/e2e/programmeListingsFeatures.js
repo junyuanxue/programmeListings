@@ -51,4 +51,12 @@ describe('Programme Listings', function () {
     expect(programmeImages.first().getAttribute('src')).toEqual('http://abadas.jpg/');
     expect(programmeImages.last().getAttribute('src')).toEqual('http://abba.jpg/');
   });
+
+  it('refreshes the list when user clickes on another page', function () {
+    var page2 = $$('#page-count li').last();
+    page2.click();
+    var programmes = $$('#programmes li p');
+
+    expect(programmes.first().getText()).not.toEqual('Abadas');
+  })
 });

@@ -20,16 +20,12 @@
         <li ng-click="ctrl.getProgrammes(letter)">{{ letter }}</li>
       </ul>
 
+      <br>
+      
+      <span>Page</span>
       <ul id= "page-count" ng-repeat="page in ctrl.pages">
-        <li>{{ page }}</li>
+        <li ng-click="">{{ page }}</li>
       </ul>
-
-      <!-- <p id="page-count" ng-if="ctrl.currentPage>0" >
-        Page {{ ctrl.currentPage }} of {{ ctrl.numOfPages }}
-        <span id="next-page" ng-if="ctrl.currentPage<ctrl.numOfPages" ng-click="ctrl.loadNextPage()">
-          Next Page
-        </span>
-      </p> -->
 
       <ul id="programmes" ng-repeat="programme in ctrl.programmes">
         <li>

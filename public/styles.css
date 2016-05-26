@@ -9,7 +9,12 @@ body {
   display: inline-block;
 }
 
-#a-to-z li:hover, #next-page:hover {
+#a-to-z li:hover, #page-count li:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+#page-count {
+  list-style: none;
+  display: inline-block;
 }
