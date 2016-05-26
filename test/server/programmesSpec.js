@@ -25,7 +25,7 @@ describe('Programme Listings server', function () {
 
   it('returns a list of programmes on /api/programmes GET', function (done) {
     chai.request(server)
-      .get('/api/programmes/a')
+      .get('/api/programmes/a?page=1')
       .end(function (err, res) {
         expect(res).to.have.status(200);
         expect(res).to.be.json;

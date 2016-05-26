@@ -1,7 +1,7 @@
 describe('ProgrammeService', function () {
   beforeEach(module('programmeListings'));
 
-  var ProgrammeService, httpBackend;
+  var ProgrammeService, ProgrammeFactory, httpBackend;
 
   var data = {
     numOfPages: 1,

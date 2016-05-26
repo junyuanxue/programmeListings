@@ -28,10 +28,6 @@ describe('Programme Listings', function () {
     mock.teardown();
   });
 
-  it('has a title', function () {
-    expect(browser.getTitle()).toEqual('Programme Listings');
-  });
-
   it('has links from A to Z', function () {
     var aToZ = $$('#a-to-z li');
 
@@ -45,6 +41,7 @@ describe('Programme Listings', function () {
     var programmeImages = $$('#programmes li img');
     var pageCount = $$('#page-count li');
 
+    expect(pageCount.first().getText()).toEqual('1');
     expect(pageCount.last().getText()).toEqual('2');
     expect(programmes.first().getText()).toEqual('Abadas');
     expect(programmes.last().getText()).toEqual('ABBA');
