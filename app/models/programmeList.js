@@ -1,9 +1,10 @@
 var request = require('request');
-var IMAGE_SIZE = {
+var IMAGE_SIZES = {
   small: '192x108',
   medium: '406x228',
   large: '560x315'
 };
+var imageSize = IMAGE_SIZES.small;
 
 exports.callToApi = function (letter, page) {
   var base = 'https://ibl.api.bbci.co.uk/ibl/v1/atoz/';
@@ -29,7 +30,7 @@ exports.callToApi = function (letter, page) {
 function _handleResponse(data) {
   var numPerPage = data.atoz_programmes.per_page;
   var count = data.atoz_programmes.count;
-  
+
   var numOfPages = Math.ceil(count / numPerPage);
   var programmes = data.atoz_programmes.elements.map(function (programme) {
     return _parseProgrammeData(programme);
@@ -41,6 +42,6 @@ function _handleResponse(data) {
 function _parseProgrammeData(programme) {
   var title = programme.title;
   var imageUrlWithRecipe = programme.images.standard;
-  var imageUrl = imageUrlWithRecipe.replace('{recipe}', IMAGE_SIZE.small);
+  var imageUrl = imageUrlWithRecipe.replace('{recipe}', imageSize);
   return { title: title, image: imageUrl };
 }

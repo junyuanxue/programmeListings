@@ -12,7 +12,7 @@ chai.use(sinonChai);
 chai.use(chaiJsonEqual);
 
 describe('ProgrammeList', function () {
-  var fakeData = {
+  var data = {
     atoz_programmes: {
       count: 2,
       per_page: 20,
@@ -37,7 +37,7 @@ describe('ProgrammeList', function () {
     var response = { statusCode: 200 };
     sinon
       .stub(request, 'get')
-      .yields(null, response, JSON.stringify(fakeData));
+      .yields(null, response, JSON.stringify(data));
       done();
   });
 
@@ -46,7 +46,7 @@ describe('ProgrammeList', function () {
     done();
   })
 
-  it('makes an external API call', function (done) {
+  it('makes an external API call for a list of programmes', function (done) {
     var size = '192x108';
     var parsedData = {
       numOfPages: 1,
