@@ -1,12 +1,13 @@
 var request = require('request');
-var IMAGE_SMALL = '192x108';
-var IMAGE_MEDIUM = '406x228';
-var IMAGE_LARGE = '560x315';
+var IMAGE_SIZE = {
+  small: '192x108',
+  medium: '406x228',
+  large: '560x315'
+};
 
 exports.callToApi = function (letter) {
   var base = 'https://ibl.api.bbci.co.uk/ibl/v1/atoz/';
   var page = 1;
-
   var options = {
     url: base + letter + '/programmes?page=' + page,
     headers: {
@@ -20,15 +21,8 @@ exports.callToApi = function (letter) {
       if (response.statusCode !== 200) return reject(new Error(body));
       if (!error && response.statusCode === 200) {
         var programmes = _handleResponse(JSON.parse(body));
-
-
-        console.log('SOME FUNCTION I DONT KNOW ABOUT DONE, RESOLVING PROMISE', programmes);
-
-
         resolve(programmes);
       }
-
-      console.log('END OF CALLBACK')
     });
   });
 }
@@ -47,6 +41,6 @@ function _handleResponse(data) {
 function _parseProgrammeData(programme) {
   var title = programme.title;
   var imageUrlWithRecipe = programme.images.standard;
-  var imageUrl = imageUrlWithRecipe.replace('{recipe}', IMAGE_SMALL);
+  var imageUrl = imageUrlWithRecipe.replace('{recipe}', IMAGE_SIZE.small);
   return { title: title, image: imageUrl };
 }

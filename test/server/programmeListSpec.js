@@ -12,9 +12,19 @@ chai.use(sinonChai);
 describe('ProgrammeList', function () {
   var fakeData = {
     atoz_programmes: {
-      elements:   [
-          { title: 'Abadas', image: 'http://abadas.jpg/' },
-          { title: 'ABBA', image: 'http://abba.jpg/' }
+      elements: [
+          {
+            title: 'Abadas',
+            images: {
+              standard: 'http://{recipe}/abadas.jpg/'
+            }
+          },
+          {
+            title: 'ABBA',
+            images: {
+              standard: 'http://{recipe}/abba.jpg/'
+            }
+          }
         ]
     }
   };
@@ -33,18 +43,16 @@ describe('ProgrammeList', function () {
   })
 
   it('makes an external API call', function (done) {
+    var size = '192x108';
     var parsedData = [
-      { title: 'Abadas', image: 'http://abadas.jpg/' },
-      { title: 'ABBA', image: 'http://abba.jpg/' }
+      { title: 'Abadas', image: 'http://' + size + '/abadas.jpg/' },
+      { title: 'ABBA', image: 'http://' + size + '/abba.jpg/' }
     ];
 
     programmeList.callToApi('a')
       .then(function (result) {
-        console.log(result);
-        expect(result).to.equal(parsedData);
-        console.log('past the expect');
+        expect(JSON.stringify(result)).to.equal(JSON.stringify(parsedData));
         done();
-        console.log('past the done i shouldn\'t be here');
-      })
+      });
   });
 });
