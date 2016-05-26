@@ -25,11 +25,11 @@
       <ul id= "page-count" ng-repeat="page in ctrl.pages">
         <li ng-click="ctrl.loadPage(page)">{{ page }}</li>
       </ul>
-      
+
       <ul id="programmes" ng-repeat="programme in ctrl.programmes">
         <li>
-          <p>{{ programme.title }}</p>
           <img src="{{ programme.image }}" />
+          <p>{{ programme.title }}</p>
         </li>
       </ul>
     </div>
