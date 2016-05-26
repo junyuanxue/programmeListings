@@ -17,12 +17,20 @@ exports.callToApi = function (letter) {
       if (response.statusCode !== 200) return reject(new Error(body));
       if (!error && response.statusCode === 200) {
         var programmes = _handleResponse(JSON.parse(body));
+
+        
+        console.log('SOME FUNCTION I DONT KNOW ABOUT DONE, RESOLVING PROMISE', programmes);
+
+
         resolve(programmes);
       }
+
+      console.log('END OF CALLBACK')
     });
   });
 }
 
 function _handleResponse(data) {
-  console.log(data.atoz_programmes);
+  return "hello";
+  // console.log(data.atoz_programmes);
 }

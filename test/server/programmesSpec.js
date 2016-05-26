@@ -15,7 +15,7 @@ var fakeData = [
 ];
 
 describe('Programme Listings server', function () {
-  beforeEach(function () {
+  before(function () {
     var callToApi = sinon.stub(programmeList, 'callToApi');
     callToApi.returns(Promise.resolve(fakeData));
   });

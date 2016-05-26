@@ -9,27 +9,42 @@ var expect = chai.expect;
 chai.use(chaiHttp);
 chai.use(sinonChai);
 
-var fakeData = {
-  atoz_programmes: {
-    elements:   [
-        { title: 'Abadas', image: 'http://abadas.jpg/' },
-        { title: 'ABBA', image: 'http://abba.jpg/' }
-      ];
-  }
-}
-
-var parsedData = [
-  { title: 'Abadas', image: 'http://abadas.jpg/' },
-  { title: 'ABBA', image: 'http://abba.jpg/' }
-]
-
 describe('ProgrammeList', function () {
-  it('makes an external API call for a list or programmes', function () {
-    var getRequest = sinon.stub(request, 'get');
-    getRequest.returns(fakeData);
-    callToApi('a')
-      .then(function (response) {
-        expect(response).to.equal(parsedData);
-      });
+  var fakeData = {
+    atoz_programmes: {
+      elements:   [
+          { title: 'Abadas', image: 'http://abadas.jpg/' },
+          { title: 'ABBA', image: 'http://abba.jpg/' }
+        ]
+    }
+  };
+
+  before(function (done) {
+    var response = { statusCode: 200 };
+    sinon
+      .stub(request, 'get')
+      .yields(null, response, JSON.stringify(fakeData));
+      done();
+  });
+
+  after(function (done) {
+    request.get.restore();
+    done();
+  })
+
+  it('makes an external API call', function (done) {
+    var parsedData = [
+      { title: 'Abadas', image: 'http://abadas.jpg/' },
+      { title: 'ABBA', image: 'http://abba.jpg/' }
+    ];
+
+    programmeList.callToApi('a')
+      .then(function (result) {
+        console.log(result);
+        expect(result).to.equal(parsedData);
+        console.log('past the expect');
+        done();
+        console.log('past the done i shouldn\'t be here');
+      })
   });
 });
