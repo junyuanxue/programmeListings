@@ -20,18 +20,19 @@ function ProgrammeController(ProgrammeService) {
 
   vm.getProgrammes = function (letter) {
     vm.currentLetter = letter;
+    vm.currentPage = 1;
     ProgrammeService.getProgrammes(letter)
       .then(_refreshProgrammes);
   }
 
   vm.loadNextPage = function () {
     vm.currentPage += 1;
-    ProgrammeService.getProgrammes(vm.currentLetter, vm.currentPage);
+    ProgrammeService.getProgrammes(vm.currentLetter, vm.currentPage)
+      .then(_refreshProgrammes);
   }
 
   function _refreshProgrammes(response) {
     vm.programmes = response.programmes;
     vm.numOfPages = response.numOfPages;
-    vm.currentPage = 1;
   }
 }
