@@ -3,20 +3,11 @@ describe('ProgrammeController', function () {
 
   var ctrl, ProgrammeService, ProgrammeFactory, httpBackend;
 
-  var data = {
-    numOfPages: 2,
-    programmes: [
-      { title: 'Abadas', image: 'http://abadas.jpg/' },
-      { title: 'ABBA', image: 'http://abba.jpg/' }
-    ]
-  };
-
   beforeEach(inject(function ($controller, _ProgrammeService_, _ProgrammeFactory_, $httpBackend) {
     ctrl = $controller('ProgrammeController');
     ProgrammeService = _ProgrammeService_;
     ProgrammeFactory = _ProgrammeFactory_;
     httpBackend = $httpBackend;
-    httpBackend.expectGET('/api/programmes/a?page=1').respond(data);
   }));
 
   describe('controller set up', function () {
@@ -42,6 +33,15 @@ describe('ProgrammeController', function () {
 
   describe('getProgrammes', function () {
     beforeEach(function () {
+      var data = {
+        numOfPages: 2,
+        programmes: [
+          { title: 'Abadas', image: 'http://abadas.jpg/' },
+          { title: 'ABBA', image: 'http://abba.jpg/' }
+        ]
+      };
+
+      httpBackend.expectGET('/api/programmes/a?page=1').respond(data);
       ctrl.getProgrammes('a');
       httpBackend.flush();
     });
@@ -70,12 +70,35 @@ describe('ProgrammeController', function () {
   });
 
   describe('loadPage', function () {
-    it('loads the next page', function () {
+    beforeEach(function () {
+      var data = {
+        numOfPages: 4,
+        programmes: [
+          { title: 'BBC Proms', image: 'http://proms.jpg/' }
+        ]
+      };
+
+      httpBackend.expectGET('/api/programmes/b?page=2').respond(data);
+      ctrl.currentLetter = 'b';
+      ctrl.loadPage(2);
+      httpBackend.flush();
+    });
+
+    it('instructs the service to make a new API call', function () {
       spyOn(ProgrammeService, 'getProgrammes').and.callThrough();
-      ctrl.currentLetter = 'a';
       ctrl.loadPage(2);
 
-      expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('a', 2);
+      expect(ProgrammeService.getProgrammes).toHaveBeenCalledWith('b', 2);
+    });
+
+    it('updates the programmes', function () {
+      var programme = new ProgrammeFactory('BBC Proms', 'http://proms.jpg/');
+
+      expect(ctrl.programmes).toEqual([programme]);
+    });
+
+    it('updates the pages', function () {
+      expect(ctrl.pages).toEqual([1, 2, 3, 4]);
     });
   });
 });
