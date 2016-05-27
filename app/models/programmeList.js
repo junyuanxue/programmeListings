@@ -41,8 +41,12 @@ function _handleResponse(data) {
 
 function _parseProgrammeData(programme) {
   var title = programme.title;
-  var imageUrlWithRecipe = programme.images.standard;
-  var imageUrlWithSize = imageUrlWithRecipe.replace('{recipe}', imageSize);
-  var finalImageUrl = imageUrlWithSize.replace('http', 'https');
-  return { title: title, image: finalImageUrl };
+  var imageUrl = _parseImageUrl(programme.images.standard);
+  return { title: title, image: imageUrl };
 }
+
+function _parseImageUrl(url) {
+  var imageUrlWithSize = url.replace('{recipe}', imageSize);
+  var finalImageUrl = imageUrlWithSize.replace('http', 'https');
+  return finalImageUrl;
+};

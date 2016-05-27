@@ -1,12 +1,12 @@
 var chai = require('chai');
-var chaiHttp = require('chai-http');
+var chaihttp = require('chai-http');
 var sinon = require('sinon');
 var sinonChai = require('sinon-chai');
 var server = require('../../app');
 var programmeList = require('../../app/models/programmeList');
 var expect = chai.expect;
 
-chai.use(chaiHttp);
+chai.use(chaihttp);
 chai.use(sinonChai);
 
 describe('Programme Listings server', function () {
@@ -14,8 +14,8 @@ describe('Programme Listings server', function () {
     var data = {
       numOfPages: 1,
       programmes: [
-          { title: 'Abadas', image: 'http://abadas.jpg/' },
-          { title: 'ABBA', image: 'http://abba.jpg/' }
+          { title: 'Abadas', image: 'https://abadas.jpg/' },
+          { title: 'ABBA', image: 'https://abba.jpg/' }
         ]
     };
     var callToApi = sinon.stub(programmeList, 'callToApi');
@@ -30,9 +30,9 @@ describe('Programme Listings server', function () {
         expect(res).to.be.json;
         expect(res.body.numOfPages).to.equal(1);
         expect(res.body.programmes[0].title).to.equal('Abadas');
-        expect(res.body.programmes[0].image).to.equal('http://abadas.jpg/');
+        expect(res.body.programmes[0].image).to.equal('https://abadas.jpg/');
         expect(res.body.programmes[1].title).to.equal('ABBA');
-        expect(res.body.programmes[1].image).to.equal('http://abba.jpg/');
+        expect(res.body.programmes[1].image).to.equal('https://abba.jpg/');
         done();
       });
   });
