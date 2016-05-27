@@ -25,6 +25,8 @@ li {
   list-style: none;
 }
 
+/*A to Z list*/
+
 .a-to-z {
   display: inline-block;
 }
@@ -58,6 +60,12 @@ li {
 
 .a-to-z .selected {
   background-color: #f54997;
+}
+
+/*Programme List*/
+
+i {
+  color: #f54997;
 }
 
 .page-count:hover {

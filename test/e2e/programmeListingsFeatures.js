@@ -37,7 +37,7 @@ describe('Programme Listings', function () {
   });
 
   it('fetches a list of programmes and displays page count', function () {
-    var programmes = $$('.programme-info p');
+    var programmes = $$('.programme-title');
     var programmeImages = $$('.programme-info img');
     var pageCount = $$('.page-count');
 
@@ -68,7 +68,7 @@ describe('Programme Listings', function () {
 
     var page2 = $$('.page-count').last();
     page2.click();
-    var programmes = $$('.programme-info p');
+    var programmes = $$('.programme-title');
     var programmeImages = $$('.programme-info img');
 
     expect(programmes.first().getText()).not.toEqual('Abadas');

@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/interface.js"></script>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     <span class="bbc">B</span><span class="bbc">B</span><span class="bbc">C</span>
@@ -33,8 +34,11 @@
 
       <ul>
         <li class="programme-info" ng-repeat="programme in ctrl.programmes">
+          <p>
+            <i class="material-icons">&#xE039;</i>
+            <p class="programme-title">{{ programme.title }}</p>
+          </p>
           <img src="{{ programme.image }}" />
-          <p>{{ programme.title }}</p>
         </li>
       </ul>
     </div>
