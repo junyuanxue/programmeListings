@@ -81,11 +81,29 @@ i {
   padding-bottom: 1em;
 }
 
-.page-count:hover {
-  cursor: pointer;
-  text-decoration: underline;
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgb(104,104,104, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/*Page Count*/
 
 .page-count {
   display: inline-block;
+  margin-right: 1.5em;
+  font-style: italic;
+}
+
+.page-count:hover {
+  cursor: pointer;
+  color: #f54997;
+  text-decoration: underline;
+}
+
+.selected-page {
+  color: #f54997;
+  text-decoration: underline;
+  font-style: normal;
 }
