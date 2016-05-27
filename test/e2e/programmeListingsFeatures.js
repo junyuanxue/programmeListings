@@ -20,7 +20,7 @@ describe('Programme Listings', function () {
     }]);
 
     browser.get('/');
-    var letterA = $$('#a-to-z li').first();
+    var letterA = $$('.a-to-z').first();
     letterA.click();
   });
 
@@ -29,17 +29,17 @@ describe('Programme Listings', function () {
   });
 
   it('has links from A to Z and 0-9', function () {
-    var aToZ = $$('#a-to-z li');
+    var aToZ = $$('.a-to-z');
 
-    expect(aToZ.count()).toEqual(26);
+    expect(aToZ.count()).toEqual(27);
     expect(aToZ.first().getText()).toEqual('A');
     expect(aToZ.last().getText()).toEqual('0-9');
   });
 
   it('fetches a list of programmes and displays page count', function () {
-    var programmes = $$('#programmes li p');
-    var programmeImages = $$('#programmes li img');
-    var pageCount = $$('#page-count li');
+    var programmes = $$('.programme-info p');
+    var programmeImages = $$('.programme-info img');
+    var pageCount = $$('.page-count');
 
     expect(pageCount.first().getText()).toEqual('1');
     expect(pageCount.last().getText()).toEqual('2');
@@ -66,10 +66,10 @@ describe('Programme Listings', function () {
       }
     }]);
 
-    var page2 = $$('#page-count li').last();
+    var page2 = $$('.page-count').last();
     page2.click();
-    var programmes = $$('#programmes li p');
-    var programmeImages = $$('#programmes li img');
+    var programmes = $$('.programme-info p');
+    var programmeImages = $$('.programme-info img');
 
     expect(programmes.first().getText()).not.toEqual('Abadas');
     expect(programmes.first().getText()).toEqual('All Mod Cons');

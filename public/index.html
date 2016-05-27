@@ -16,20 +16,22 @@
     <span class="bbc">B</span><span class="bbc">B</span><span class="bbc">C</span>
     <h1>A-Z of TV Programmes</h1>
     <div ng-controller="ProgrammeController as ctrl">
-      <ul id="a-to-z" ng-repeat="letter in ctrl.letters">
-        <li ng-click="ctrl.getProgrammes(letter)">
+      <ul>
+        <li class="a-to-z" ng-repeat="letter in ctrl.letters" ng-click="ctrl.getProgrammes(letter)">
           <button>{{ letter }}</button>
         </li>
       </ul>
       <br>
 
       <span ng-if="ctrl.currentLetter!==null">Page</span>
-      <ul id= "page-count" ng-repeat="page in ctrl.pages">
-        <li ng-click="ctrl.loadPage(page)">{{ page }}</li>
+      <ul>
+        <li class="page-count" ng-repeat="page in ctrl.pages" ng-click="ctrl.loadPage(page)">
+          <p>{{ page }}</p>
+        </li>
       </ul>
 
-      <ul id="programmes" ng-repeat="programme in ctrl.programmes">
-        <li>
+      <ul>
+        <li class="programme-info" ng-repeat="programme in ctrl.programmes">
           <img src="{{ programme.image }}" />
           <p>{{ programme.title }}</p>
         </li>

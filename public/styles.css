@@ -1,7 +1,7 @@
 body {
   background-color: #252525;
   font-family: sans-serif;
-  margin: 1em 7em 0 7em;
+  margin: 1em 10em 0 10em;
   color: white;
 }
 
@@ -25,26 +25,26 @@ li {
   list-style: none;
 }
 
-#a-to-z {
+.a-to-z {
   display: inline-block;
 }
 
-#a-to-z li button {
+.a-to-z button {
   text-transform: uppercase;
   text-align: center;
   background-color: #333;
   color: white;
   border: none;
   font-size: 0.9em;
-  width: 3em;
-  height: 2em;
+  width: 4.5em;
+  height: 2.8em;
 }
 
-#page-count li:hover {
+.page-count:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-#page-count {
+.page-count {
   display: inline-block;
 }
