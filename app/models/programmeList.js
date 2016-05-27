@@ -42,6 +42,7 @@ function _handleResponse(data) {
 function _parseProgrammeData(programme) {
   var title = programme.title;
   var imageUrlWithRecipe = programme.images.standard;
-  var imageUrl = imageUrlWithRecipe.replace('{recipe}', imageSize);
-  return { title: title, image: imageUrl };
+  var imageUrlWithSize = imageUrlWithRecipe.replace('{recipe}', imageSize);
+  var finalImageUrl = imageUrlWithSize.replace('http', 'https');
+  return { title: title, image: finalImageUrl };
 }

@@ -51,8 +51,8 @@ describe('ProgrammeList', function () {
     var parsedData = {
       numOfPages: 1,
       programmes: [
-          { title: 'Abadas', image: 'http://' + size + '/abadas.jpg/' },
-          { title: 'ABBA', image: 'http://' + size + '/abba.jpg/' }
+          { title: 'Abadas', image: 'https://' + size + '/abadas.jpg/' },
+          { title: 'ABBA', image: 'https://' + size + '/abba.jpg/' }
         ]
     };
 
