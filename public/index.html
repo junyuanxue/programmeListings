@@ -32,13 +32,14 @@
         </li>
       </ul>
 
-      <ul>
+      <ul id="programme-list">
         <li class="programme-info" ng-repeat="programme in ctrl.programmes">
           <p>
             <i class="material-icons">&#xE039;</i>
-            <p class="programme-title">{{ programme.title }}</p>
+            <span class="programme-title">{{ programme.title }}</span>
           </p>
           <img src="{{ programme.image }}" />
+          <hr>
         </li>
       </ul>
     </div>

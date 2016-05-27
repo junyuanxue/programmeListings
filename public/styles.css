@@ -64,8 +64,21 @@ li {
 
 /*Programme List*/
 
+#programme-list {
+  -moz-column-count: 2;
+  -moz-column-gap: 8em;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 8em;
+  column-count: 2;
+  column-gap: 8em;
+}
+
 i {
   color: #f54997;
+}
+
+.programme-title {
+  padding-bottom: 1em;
 }
 
 .page-count:hover {
