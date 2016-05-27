@@ -7,8 +7,7 @@
     "start": "node app.js",
     "karma": "karma start test/karma.conf.js",
     "protractor": "protractor test/protractor.conf.js",
-    "mocha": "mocha test/server",
-    "postinstall": "bower install"
+    "mocha": "mocha test/server"
   },
   "author": "",
   "license": "ISC",
