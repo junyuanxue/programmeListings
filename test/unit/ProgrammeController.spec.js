@@ -12,14 +12,14 @@ describe('ProgrammeController', function () {
 
   describe('controller set up', function () {
     it('has a list of alphabet', function () {
-      var alphabet = [
+      var letters = [
         'a', 'b', 'c', 'd', 'e', 'f',
         'g', 'h', 'i', 'j', 'k', 'l',
         'm', 'n', 'o', 'p', 'q', 'r',
         's', 't', 'u', 'v', 'w', 'x',
-        'y', 'z'
+        'y', 'z', '0-9'
       ]
-      expect(ctrl.letters).toEqual(alphabet);
+      expect(ctrl.letters).toEqual(letters);
     });
 
     it('has an empty list of programmes', function () {

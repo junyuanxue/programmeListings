@@ -28,12 +28,12 @@ describe('Programme Listings', function () {
     mock.teardown();
   });
 
-  it('has links from A to Z', function () {
+  it('has links from A to Z and 0-9', function () {
     var aToZ = $$('#a-to-z li');
 
     expect(aToZ.count()).toEqual(26);
     expect(aToZ.first().getText()).toEqual('A');
-    expect(aToZ.last().getText()).toEqual('Z');
+    expect(aToZ.last().getText()).toEqual('0-9');
   });
 
   it('fetches a list of programmes and displays page count', function () {
