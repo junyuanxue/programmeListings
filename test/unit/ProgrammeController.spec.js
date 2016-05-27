@@ -26,6 +26,10 @@ describe('ProgrammeController', function () {
       expect(ctrl.programmes).toEqual([]);
     });
 
+    it('starts with letter A', function () {
+      expect(ctrl.currentLetter).toEqual('a');
+    });
+
     it('has no pages', function () {
       expect(ctrl.pages).toEqual([]);
     });

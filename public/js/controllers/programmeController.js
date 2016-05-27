@@ -15,7 +15,7 @@ function ProgrammeController(ProgrammeService) {
   ];
   vm.programmes = [];
   vm.pages = [];
-  vm.currentLetter = null;
+  vm.currentLetter = 'a';
   vm._numOfPages = 0;
 
   ProgrammeService.getProgrammes('a', 1)

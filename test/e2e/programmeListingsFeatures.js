@@ -69,12 +69,33 @@ describe('Programme Listings', function () {
     var programmes = $$('.programme-title');
     var programmeImages = $$('.programme-info img');
 
-    expect(programmes.first().getText()).not.toEqual('Abadas');
     expect(programmes.first().getText()).toEqual('All Mod Cons');
     expect(programmeImages.first().getAttribute('src')).toEqual('https://all-mod-cons.jpg/');
   });
 
   it('refreshes the list when user clicks on another letter', function () {
-    
+    mock.add([{
+      request: {
+        path: '/api/programmes/b',
+        method: 'GET',
+        queryString: { page:  '1' }
+      },
+      response: {
+        data: {
+          numOfPages: 2,
+          programmes: [
+              { title: 'Babi Del', image: 'https://babi-del.jpg/' }
+            ]
+        }
+      }
+    }]);
+
+    var letterB = $$('.a-to-z').get(1);
+    letterB.click();
+    var programmes = $$('.programme-title');
+    var programmeImages = $$('.programme-info img');
+
+    expect(programmes.first().getText()).toEqual('Babi Del');
+    expect(programmeImages.first().getAttribute('src')).toEqual('https://babi-del.jpg/');
   });
 });

@@ -4,7 +4,7 @@ What's on BBC? Find out on https://programme-listings.herokuapp.com/.
 
 ## About :tv:
 
-This is a simple web page that lists all the content fetched from the BBC HTTP API and displays an A-Z listing of programmes with their titles and images.
+This is a single-page web app that lists all the content fetched from the BBC HTTP API and displays an A-Z listing of programmes with their titles and images.
 
 ## Approach :arrow_right:
 
