@@ -36,8 +36,28 @@ li {
   color: white;
   border: none;
   font-size: 0.9em;
-  width: 4.5em;
+  width: 4.3em;
   height: 2.8em;
+  margin: 0.5em 0.25em 0 0.25em;
+}
+
+.a-to-z:last-child button {
+  width: 9.1em;
+}
+
+.a-to-z button:hover {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.a-to-z button:focus {
+  outline: 0;
+}
+
+.a-to-z .selected {
+  background-color: #f54997;
 }
 
 .page-count:hover {

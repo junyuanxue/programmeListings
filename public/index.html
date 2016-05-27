@@ -5,10 +5,12 @@
     <title>Programme Listings - BBC</title>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/factories/programmeFactory.js"></script>
     <script type="text/javascript" src="js/services/programmeService.js"></script>
     <script type="text/javascript" src="js/controllers/programmeController.js"></script>
+    <script type="text/javascript" src="js/interface.js"></script>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
@@ -16,12 +18,11 @@
     <span class="bbc">B</span><span class="bbc">B</span><span class="bbc">C</span>
     <h1>A-Z of TV Programmes</h1>
     <div ng-controller="ProgrammeController as ctrl">
-      <ul>
+      <ul id="a-to-z-list">
         <li class="a-to-z" ng-repeat="letter in ctrl.letters" ng-click="ctrl.getProgrammes(letter)">
           <button>{{ letter }}</button>
         </li>
       </ul>
-      <br>
 
       <span ng-if="ctrl.currentLetter!==null">Page</span>
       <ul>
