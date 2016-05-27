@@ -24,6 +24,7 @@ To run the tests, first of all clone this repo and add dependencies:
 $ git clone git@github.com:junyuanxue/programmeListings.git
 $ cd programmeListings
 $ npm install
+$ bower install
 
 ```
 
