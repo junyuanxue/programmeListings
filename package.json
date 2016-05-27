@@ -7,7 +7,8 @@
     "start": "node app.js",
     "karma": "karma start test/karma.conf.js",
     "protractor": "protractor test/protractor.conf.js",
-    "mocha": "mocha test/server"
+    "mocha": "mocha test/server",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,6 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "chai-json-equal": "0.0.1",
-    "express": "^4.13.4",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.22",
@@ -26,7 +26,6 @@
     "mocha": "^2.5.3",
     "protractor": "^3.3.0",
     "protractor-http-mock": "^0.7.0",
-    "request": "^2.72.0",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"
   },
