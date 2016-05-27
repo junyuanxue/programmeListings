@@ -18,6 +18,9 @@ function ProgrammeController(ProgrammeService) {
   vm.currentLetter = null;
   vm._numOfPages = 0;
 
+  ProgrammeService.getProgrammes('a', 1)
+    .then(_refreshProgrammes);
+
   vm.getProgrammes = function (letter) {
     vm.currentLetter = letter;
     ProgrammeService.getProgrammes(letter, 1)

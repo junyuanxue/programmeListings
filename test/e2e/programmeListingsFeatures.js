@@ -20,8 +20,6 @@ describe('Programme Listings', function () {
     }]);
 
     browser.get('/');
-    var letterA = $$('.a-to-z').first();
-    letterA.click();
   });
 
   afterEach(function () {
@@ -74,5 +72,9 @@ describe('Programme Listings', function () {
     expect(programmes.first().getText()).not.toEqual('Abadas');
     expect(programmes.first().getText()).toEqual('All Mod Cons');
     expect(programmeImages.first().getAttribute('src')).toEqual('https://all-mod-cons.jpg/');
+  });
+
+  it('refreshes the list when user clicks on another letter', function () {
+    
   });
 });
