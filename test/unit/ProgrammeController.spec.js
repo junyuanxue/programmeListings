@@ -36,8 +36,8 @@ describe('ProgrammeController', function () {
       var data = {
         numOfPages: 2,
         programmes: [
-          { title: 'Abadas', image: 'http://abadas.jpg/' },
-          { title: 'ABBA', image: 'http://abba.jpg/' }
+          { title: 'Abadas', image: 'https://abadas.jpg/' },
+          { title: 'ABBA', image: 'https://abba.jpg/' }
         ]
       };
 
@@ -54,8 +54,8 @@ describe('ProgrammeController', function () {
     });
 
     it('updates the programmes', function () {
-      var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
-      var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
+      var programme1 = new ProgrammeFactory('Abadas', 'https://abadas.jpg/');
+      var programme2 = new ProgrammeFactory('ABBA', 'https://abba.jpg/');
 
       expect(ctrl.programmes).toEqual([programme1, programme2]);
     });
@@ -74,7 +74,7 @@ describe('ProgrammeController', function () {
       var data = {
         numOfPages: 4,
         programmes: [
-          { title: 'BBC Proms', image: 'http://proms.jpg/' }
+          { title: 'BBC Proms', image: 'https://proms.jpg/' }
         ]
       };
 
@@ -92,7 +92,7 @@ describe('ProgrammeController', function () {
     });
 
     it('updates the programmes', function () {
-      var programme = new ProgrammeFactory('BBC Proms', 'http://proms.jpg/');
+      var programme = new ProgrammeFactory('BBC Proms', 'https://proms.jpg/');
 
       expect(ctrl.programmes).toEqual([programme]);
     });

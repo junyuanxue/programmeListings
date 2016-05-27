@@ -4,7 +4,7 @@ describe('ProgrammeFactory', function () {
   var programme;
 
   beforeEach(inject(function (ProgrammeFactory) {
-    programme = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
+    programme = new ProgrammeFactory('ABBA', 'https://abba.jpg/');
   }));
 
   it('has a title', function () {
@@ -12,6 +12,6 @@ describe('ProgrammeFactory', function () {
   });
 
   it('has an image', function () {
-    expect(programme.image).toEqual('http://abba.jpg/');
+    expect(programme.image).toEqual('https://abba.jpg/');
   });
 });

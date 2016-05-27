@@ -12,8 +12,8 @@ describe('Programme Listings', function () {
         data: {
           numOfPages: 2,
           programmes: [
-              { title: 'Abadas', image: 'http://abadas.jpg/' },
-              { title: 'ABBA', image: 'http://abba.jpg/' }
+              { title: 'Abadas', image: 'https://abadas.jpg/' },
+              { title: 'ABBA', image: 'https://abba.jpg/' }
             ]
         }
       }
@@ -45,8 +45,8 @@ describe('Programme Listings', function () {
     expect(pageCount.last().getText()).toEqual('2');
     expect(programmes.first().getText()).toEqual('Abadas');
     expect(programmes.last().getText()).toEqual('ABBA');
-    expect(programmeImages.first().getAttribute('src')).toEqual('http://abadas.jpg/');
-    expect(programmeImages.last().getAttribute('src')).toEqual('http://abba.jpg/');
+    expect(programmeImages.first().getAttribute('src')).toEqual('https://abadas.jpg/');
+    expect(programmeImages.last().getAttribute('src')).toEqual('https://abba.jpg/');
   });
 
   it('refreshes the list when user clickes on another page', function () {
@@ -60,7 +60,7 @@ describe('Programme Listings', function () {
         data: {
           numOfPages: 2,
           programmes: [
-              { title: 'All Mod Cons', image: 'http://all-mod-cons.jpg/' }
+              { title: 'All Mod Cons', image: 'https://all-mod-cons.jpg/' }
             ]
         }
       }
@@ -73,6 +73,6 @@ describe('Programme Listings', function () {
 
     expect(programmes.first().getText()).not.toEqual('Abadas');
     expect(programmes.first().getText()).toEqual('All Mod Cons');
-    expect(programmeImages.first().getAttribute('src')).toEqual('http://all-mod-cons.jpg/');
+    expect(programmeImages.first().getAttribute('src')).toEqual('https://all-mod-cons.jpg/');
   });
 });

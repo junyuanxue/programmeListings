@@ -6,8 +6,8 @@ describe('ProgrammeService', function () {
   var data = {
     numOfPages: 1,
     programmes: [
-      { title: 'Abadas', image: 'http://abadas.jpg/' },
-      { title: 'ABBA', image: 'http://abba.jpg/' }
+      { title: 'Abadas', image: 'https://abadas.jpg/' },
+      { title: 'ABBA', image: 'https://abba.jpg/' }
     ]
   };
 
@@ -19,8 +19,8 @@ describe('ProgrammeService', function () {
 
   it('get a list of programmes from the server', function () {
     httpBackend.expectGET('/api/programmes/a?page=1').respond(data);
-    var programme1 = new ProgrammeFactory('Abadas', 'http://abadas.jpg/');
-    var programme2 = new ProgrammeFactory('ABBA', 'http://abba.jpg/');
+    var programme1 = new ProgrammeFactory('Abadas', 'https://abadas.jpg/');
+    var programme2 = new ProgrammeFactory('ABBA', 'https://abba.jpg/');
     var parsedData = {
       numOfPages: 1,
       programmes: [programme1, programme2]

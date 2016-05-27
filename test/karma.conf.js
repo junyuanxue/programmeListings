@@ -6,7 +6,7 @@ module.exports = function(config){
     files : [
       'public/bower_components/angular/angular.js',
       'public/bower_components/angular-mocks/angular-mocks.js',
-      'public/js/**/*.js',
+      'public/js/**/!(interface).js',
       'test/unit/**/*.js'
     ],
 
